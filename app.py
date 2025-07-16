@@ -8,6 +8,22 @@ import plotly.express as px
 from skin_disease_model import SkinDiseaseDetector
 import warnings
 warnings.filterwarnings('ignore')
+import requests
+
+MODEL_URL = "https://www.dropbox.com/scl/fi/qyoa1agof3ab7ydghtxxi/skin_disease_model.keras?rlkey=otpdzr9a1aib3gwytyelxjy39&st=3352pd3s&dl=1"
+MODEL_PATH = "skin_disease_model.keras"
+
+def download_model():
+    if not os.path.exists(MODEL_PATH):
+        print("Downloading model from Dropbox...")
+        with requests.get(MODEL_URL, stream=True) as r:
+            r.raise_for_status()
+            with open(MODEL_PATH, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+        print("Model downloaded.")
+
+download_model()
 
 # Set page config
 st.set_page_config(
