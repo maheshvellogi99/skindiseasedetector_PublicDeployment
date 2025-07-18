@@ -85,9 +85,13 @@ def load_model():
         detector.get_class_names()
         detector.load_model('skin_disease_model.keras')
         return detector
-    except:
-        st.error("Model not found. Please train the model first using skin_disease_model.py")
+    except Exception as e:
+        st.error(f"Model not found or failed to load. Error: {e}")
         return None
+
+# After download_model() and model file presence check
+if os.path.exists(MODEL_PATH):
+    st.write(f"Model file size: {os.path.getsize(MODEL_PATH) / (1024*1024):.2f} MB")
 
 def preprocess_image(image):
     """Preprocess uploaded image"""
