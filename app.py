@@ -11,7 +11,7 @@ warnings.filterwarnings('ignore')
 import requests
 import shutil
 
-MODEL_URL = "https://www.dropbox.com/scl/fi/cwflldvfc8rg680w2ytbj/skin_disease_model.h5?rlkey=zhgrbggvcyhd1sy6jlydh61xu&st=ftfr9ija&dl=1"
+MODEL_URL = "https://www.dropbox.com/scl/fi/ym1jc6fkiqbj74k11tgj4/skin_disease_model.h5?rlkey=d6p777euoyjwonujnzq6zmmy4&st=s3y2dy6m&dl=1"
 MODEL_PATH = "skin_disease_model.h5"
 TEMP_MODEL_PATH = "skin_disease_model.h5?dl=1"
 
