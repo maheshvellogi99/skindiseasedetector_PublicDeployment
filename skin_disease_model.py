@@ -15,21 +15,18 @@ import warnings
 warnings.filterwarnings('ignore')
 
 class SkinDiseaseDetector:
-    def __init__(self, train_path='dataset/train', test_path='dataset/test', img_size=(224, 224)):
-        self.train_path = train_path
-        self.test_path = test_path
+    def __init__(self, img_size=(224, 224)):
         self.img_size = img_size
         self.num_classes = 0
         self.class_names = []
         self.model = None
         self.history = None
-        
-    def get_class_names(self):
-        """Get all class names from the dataset"""
-        self.class_names = sorted([d for d in os.listdir(self.train_path) 
-                                  if os.path.isdir(os.path.join(self.train_path, d))])
+    
+    def get_class_names(self, class_names_path='class_names.txt'):
+        with open(class_names_path) as f:
+            self.class_names = [line.strip() for line in f]
         self.num_classes = len(self.class_names)
-        print(f"Found {self.num_classes} classes: {self.class_names}")
+        print(f"Loaded {self.num_classes} classes: {self.class_names}")
         return self.class_names
     
     def create_data_generators(self, batch_size=32):

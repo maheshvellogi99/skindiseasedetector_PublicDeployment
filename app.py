@@ -82,7 +82,7 @@ def load_model():
     """Load the trained model"""
     try:
         detector = SkinDiseaseDetector()
-        detector.get_class_names()
+        detector.get_class_names('class_names.txt')
         detector.load_model('skin_disease_model.keras')
         return detector
     except Exception as e:
