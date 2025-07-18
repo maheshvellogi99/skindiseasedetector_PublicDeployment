@@ -21,7 +21,7 @@ class SkinDiseaseDetector:
         self.class_names = []
         self.model = None
         self.history = None
-    
+        
     def get_class_names(self, class_names_path='class_names.txt'):
         with open(class_names_path) as f:
             self.class_names = [line.strip() for line in f]
@@ -272,8 +272,7 @@ class SkinDiseaseDetector:
         self.model.save(model_path, save_format='keras')
         print(f"Model saved to {model_path}")
         
-    def load_model(self, model_path='skin_disease_model.keras'):
-        """Load a trained model from native Keras format"""
+    def load_model(self, model_path='skin_disease_model.h5'):
         self.model = tf.keras.models.load_model(model_path)
         print(f"Model loaded from {model_path}")
 

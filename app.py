@@ -11,9 +11,9 @@ warnings.filterwarnings('ignore')
 import requests
 import shutil
 
-MODEL_URL = "https://www.dropbox.com/scl/fi/qyoa1agof3ab7ydghtxxi/skin_disease_model.keras?rlkey=otpdzr9a1aib3gwytyelxjy39&st=3352pd3s&dl=1"
-MODEL_PATH = "skin_disease_model.keras"
-TEMP_MODEL_PATH = "skin_disease_model.keras?dl=1"
+MODEL_URL = "https://www.dropbox.com/scl/fi/cwflldvfc8rg680w2ytbj/skin_disease_model.h5?rlkey=zhgrbggvcyhd1sy6jlydh61xu&st=ftfr9ija&dl=1"
+MODEL_PATH = "skin_disease_model.h5"
+TEMP_MODEL_PATH = "skin_disease_model.h5?dl=1"
 
 def download_model():
     if not os.path.exists(MODEL_PATH):
@@ -83,7 +83,7 @@ def load_model():
     try:
         detector = SkinDiseaseDetector()
         detector.get_class_names('class_names.txt')
-        detector.load_model('skin_disease_model.keras')
+        detector.load_model(MODEL_PATH)
         return detector
     except Exception as e:
         st.error(f"Model not found or failed to load. Error: {e}")
