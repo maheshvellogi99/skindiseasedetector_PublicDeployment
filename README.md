@@ -1,6 +1,6 @@
 # 🏥 Skin Disease Detection System
 
-A comprehensive machine learning system for detecting and classifying 23 different types of skin diseases using deep learning and computer vision.
+A comprehensive machine learning system for detecting and classifying 23 different types of skin diseases using deep learning.
 
 ## 🌟 Features
 
@@ -48,12 +48,17 @@ A comprehensive machine learning system for detecting and classifying 23 differe
 
 1. **Clone or download the project files**
 
-2. **Install dependencies**:
+2. **Create and activate a virtual environment (recommended)**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-
-3. **Verify dataset structure**:
+4. **Verify dataset structure**:
    ```
    dataset/
    ├── train/
@@ -65,55 +70,20 @@ A comprehensive machine learning system for detecting and classifying 23 differe
        ├── Atopic Dermatitis Photos/
        └── ... (23 disease categories)
    ```
-4. **Download model**:
-      Download model from this link: https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1
+5. **Download model**:
+`  - The model will be automatically downloaded from Dropbox on first run.
+   - Alternatively, place `skin_disease_model.h5` in the project root.Download model from this link: https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1
 
+6. **Run the application**
+   ```bash
+   streamlit run app.py
+   ```
 ## 🎯 Usage
 
-### 1. Training the Model
-
-Train the model using your dataset:
-
-```bash
-python skin_disease_model.py
-```
-
-This will:
-- Load and preprocess the training data
-- Build a ResNet50V2-based model with transfer learning
-- Train the model with data augmentation
-- Evaluate on test data
-- Save the trained model as `skin_disease_model.h5`
-- Generate training history and confusion matrix plots
-
-### 2. Web Application
-
-Launch the Streamlit web application:
-
-```bash
-streamlit run app.py
-```
-
-Features:
-- **Home**: Overview and information about the system
-- **Upload & Predict**: Upload images and get instant predictions
-- **Model Information**: Technical details about the model
-- **About**: Information about the application
-
-### 3. Command Line Testing
-
-Test individual images or directories:
-
-```bash
-# Test a single image
-python test_image.py --image path/to/image.jpg
-
-# Test all images in a directory
-python test_image.py --dir path/to/image/directory
-
-# Use a specific model file
-python test_image.py --image path/to/image.jpg --model my_model.h5
-```
+1. Open the app in your browser - 
+2. Navigate to the **Upload & Predict** page.
+3. Upload a clear image of the skin condition.
+4. View the predicted disease, confidence score, and recommendations.
 
 ## 🏗️ Model Architecture
 
@@ -162,22 +132,6 @@ The model achieves high accuracy across multiple skin disease categories with:
 - **Zoom**: ±20%
 - **Horizontal Flip**: Enabled
 
-## 📁 Project Structure
-
-```
-├── dataset/
-│   ├── train/          # Training images (23 categories)
-│   └── test/           # Test images (23 categories)
-├── skin_disease_model.py    # Main training script
-├── app.py                   # Streamlit web application
-├── test_image.py            # Command line testing script
-├── requirements.txt         # Python dependencies
-├── README.md               # This file
-├── skin_disease_model.h5   # Trained model (generated)
-├── training_history.png    # Training plots (generated)
-└── confusion_matrix.png    # Confusion matrix (generated)
-```
-
 ## ⚠️ Important Notes
 
 ### Medical Disclaimer
@@ -216,6 +170,7 @@ The model achieves high accuracy across multiple skin disease categories with:
 
 3. **Model Not Found**:
    - Ensure you've trained the model first
+   - Directly download here - https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1
    - Check file path in `app.py`
 
 4. **Dataset Issues**:
