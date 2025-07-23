@@ -338,7 +338,7 @@ def main():
         ### Purpose
         
         This Skin Disease Detection System is designed to assist in the preliminary
-        identification of common skin conditions using artificial intelligence.
+        identification of common skin conditions using Deep learning technology.
         
         ### Technology Stack
         
