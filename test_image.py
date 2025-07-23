@@ -5,7 +5,7 @@ from PIL import Image
 import argparse
 from skin_disease_model import SkinDiseaseDetector
 
-def test_single_image(image_path, model_path='skin_disease_model.keras'):
+def test_single_image(image_path, model_path='skin_disease_model.h5'):
     """
     Test a single image with the trained model
     
@@ -57,7 +57,7 @@ def test_single_image(image_path, model_path='skin_disease_model.keras'):
     except Exception as e:
         print(f"Error during prediction: {str(e)}")
 
-def test_multiple_images(image_dir, model_path='skin_disease_model.keras'):
+def test_multiple_images(image_dir, model_path='skin_disease_model.h5'):
     """
     Test multiple images from a directory
     
@@ -107,7 +107,7 @@ def main():
     parser = argparse.ArgumentParser(description='Test skin disease detection model')
     parser.add_argument('--image', type=str, help='Path to single image file')
     parser.add_argument('--dir', type=str, help='Path to directory containing images')
-    parser.add_argument('--model', type=str, default='skin_disease_model.keras', 
+    parser.add_argument('--model', type=str, default='skin_disease_model.h5', 
                        help='Path to trained model file')
     
     args = parser.parse_args()

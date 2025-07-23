@@ -21,6 +21,8 @@ class SkinDiseaseDetector:
         self.class_names = []
         self.model = None
         self.history = None
+        self.train_path = 'dataset/train'
+        self.test_path = 'dataset/test'
         
     def get_class_names(self, class_names_path='class_names.txt'):
         with open(class_names_path) as f:
@@ -110,7 +112,7 @@ class SkinDiseaseDetector:
         
         # Compile the model
         self.model.compile(
-            optimizer=optimizers.Adam(learning_rate=0.001),
+            optimizer=optimizers.legacy.Adam(learning_rate=0.001),
             loss='categorical_crossentropy',
             metrics=['accuracy']
         )
@@ -163,7 +165,7 @@ class SkinDiseaseDetector:
             
         # Recompile with lower learning rate
         self.model.compile(
-            optimizer=optimizers.Adam(learning_rate=0.0001),
+            optimizer=optimizers.legacy.Adam(learning_rate=0.0001),
             loss='categorical_crossentropy',
             metrics=['accuracy']
         )
@@ -267,9 +269,9 @@ class SkinDiseaseDetector:
         display_name = "Normal" if self.class_names[predicted_class] == "Normal Skin" else self.class_names[predicted_class]
         return display_name, confidence, prediction[0]
         
-    def save_model(self, model_path='skin_disease_model.keras'):
-        """Save the trained model in native Keras format"""
-        self.model.save(model_path, save_format='keras')
+    def save_model(self, model_path='skin_disease_model.h5'):
+        """Save the trained model in legacy H5 format"""
+        self.model.save(model_path, save_format='h5')
         print(f"Model saved to {model_path}")
         
     def load_model(self, model_path='skin_disease_model.h5'):
