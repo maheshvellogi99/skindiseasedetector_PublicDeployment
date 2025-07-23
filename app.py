@@ -166,7 +166,7 @@ def main():
         - Actinic Keratosis and Malignant Lesions
         
         ### How to Use:
-        1. Go to "Upload & Predict" page
+        1. Go to the "Upload & Predict" page from the left side navigation pane.
         2. Upload a clear image of the skin condition
         3. Get instant prediction with confidence score
         4. View detailed analysis and recommendations
