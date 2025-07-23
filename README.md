@@ -65,6 +65,8 @@ A comprehensive machine learning system for detecting and classifying 23 differe
        ├── Atopic Dermatitis Photos/
        └── ... (23 disease categories)
    ```
+4. **Download model**:
+      Download model from this link: https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1
 
 ## 🎯 Usage
 
