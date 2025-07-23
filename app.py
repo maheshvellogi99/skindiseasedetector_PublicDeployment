@@ -376,7 +376,7 @@ def main():
         
         ### Contact
         
-        For questions or feedback about this application, please contact me at maheshvellogi99@gmail.com\n
+        For any queries or feedback about this application, please contact me at maheshvellogi99@gmail.com\n
         Github: https://github.com/maheshvellogi99 \n
         Linkedin: https://www.linkedin.com/in/mahesh-vellogi-aa13522ba/
         
