@@ -139,6 +139,12 @@ def main():
         - 🎯 **High Accuracy**: Powered by ResNet50V2 transfer learning
         - 📱 **Easy to Use**: Simple drag-and-drop interface
         - 📊 **Detailed Analysis**: Confidence scores and probability distributions
+
+        ### How to Use:
+        1. Go to the "Upload & Predict" page from the left side navigation pane.
+        2. Upload a clear image of the skin condition
+        3. Get instant prediction with confidence score
+        4. View detailed analysis and recommendations
         
         ### Supported Diseases:
         - Acne and Rosacea
@@ -165,11 +171,6 @@ def main():
         - Viral Infections (Warts, Molluscum)
         - Actinic Keratosis and Malignant Lesions
         
-        ### How to Use:
-        1. Go to the "Upload & Predict" page from the left side navigation pane.
-        2. Upload a clear image of the skin condition
-        3. Get instant prediction with confidence score
-        4. View detailed analysis and recommendations
         
         ⚠️ **Disclaimer**: This tool is for educational purposes only and should not replace professional medical advice.
         """)
