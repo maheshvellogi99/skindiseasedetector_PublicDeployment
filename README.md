@@ -203,3 +203,8 @@ This project is for educational and research purposes. Please ensure compliance 
 ---
 
 **Note**: This system is designed to assist healthcare professionals and should not be used as a standalone diagnostic tool. Always consult qualified medical professionals for proper diagnosis and treatment. 
+
+## Outputs:
+<img width="1221" height="1052" alt="Screenshot 2025-07-24 at 5 38 16 PM" src="https://github.com/user-attachments/assets/4f4820ce-3f2d-4079-833c-381f5ffc1b38" />
+<img width="1710" height="1069" alt="Screenshot 2025-07-24 at 5 36 55 PM" src="https://github.com/user-attachments/assets/664d5e89-5426-458d-a4c3-713ac3c9d2e2" />
+<img width="1265" height="1096" alt="Screenshot 2025-07-24 at 5 31 38 PM" src="https://github.com/user-attachments/assets/9abb0ed9-c0c9-469b-a092-e3c524d749e9" />
