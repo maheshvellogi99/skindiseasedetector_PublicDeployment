@@ -277,6 +277,14 @@ def main():
                     - Try uploading a clearer, better-lit image
                     - Professional medical evaluation is strongly recommended
                     """)
+        st.markdown("""
+        ### Privacy & Security:
+        - Your images are processed locally and never stored. No personal health information is collected. All predictions are temporary and remain entirely private.
+
+        ### Usage Guidelines and Limitations:
+        - For the best results, use clear, high-resolution images of the affected area in consistent lighting. Avoid shadows, reflections, and blurriness. Keep in mind that accuracy relies on image quality and may differ among skin types. Some rare conditions may not be recognized, and all results are based on probabilities—not a replacement for a professional diagnosis.
+        
+        """)
     
     elif page == "Model Information":
         st.header("🤖 Model Information")
