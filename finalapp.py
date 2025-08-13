@@ -196,7 +196,7 @@ st.markdown("""
         background: rgba(170, 187, 230, 1);
         border: 2px dashed rgba(99, 102, 241, 0.3);
         border-radius: 16px;
-        padding: 1.25rem;
+        padding: 1rem;
         text-align: center;
         transition: all 0.3s ease;
         backdrop-filter: blur(20px);
@@ -204,6 +204,8 @@ st.markdown("""
         max-width: 720px; /* constrain width */
         margin-left: auto;
         margin-right: auto; /* center */
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .stFileUploader:hover {
@@ -250,9 +252,11 @@ st.markdown("""
         color: white !important;
         border: none !important;
         border-radius: 12px !important;
-        padding: 0.875rem 2rem !important;
+        padding: 0.75rem 1.5rem !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
+        font-size: 0.875rem !important;
+        white-space: nowrap !important;
     }
     
     .stFileUploader button:hover {
@@ -294,8 +298,10 @@ st.markdown("""
     .stFileUploader > div {
         background: rgba(255, 255, 255, 0.9) !important;
         border-radius: 16px !important;
-        padding: 2rem !important;
+        padding: 1.5rem !important;
         text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     /* Ensure all text elements are visible */
@@ -379,6 +385,9 @@ st.markdown("""
         backdrop-filter: blur(20px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .hero-content:hover {
@@ -389,7 +398,7 @@ st.markdown("""
     }
     
     .hero-title {
-        font-size: clamp(3rem, 8vw, 6rem);
+        font-size: clamp(2.5rem, 6vw, 6rem);
         font-weight: 800;
         background: linear-gradient(135deg, #ffffff 0%, #6366f1 50%, #8b5cf6 100%);
         -webkit-background-clip: text;
@@ -399,36 +408,41 @@ st.markdown("""
         letter-spacing: -0.02em;
         line-height: 1.1;
         text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        word-break: keep-all;
+        white-space: nowrap;
     }
     
     .hero-subtitle {
-        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        font-size: clamp(1rem, 2.5vw, 1.75rem);
         font-weight: 600;
         color: #e5e7eb;
         margin-bottom: 1rem;
         opacity: 0.9;
+        line-height: 1.3;
     }
     
     .hero-description {
-        font-size: clamp(1rem, 2.5vw, 1.125rem);
+        font-size: clamp(0.875rem, 2vw, 1.125rem);
         color: #9ca3af;
-        line-height: 1.6;
-        margin-bottom: 3rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
+        padding: 0 1rem;
     }
     
     .hero-stats {
         display: flex;
         justify-content: center;
-        gap: 3rem;
+        gap: 2rem;
         flex-wrap: wrap;
+        padding: 0 1rem;
     }
     
     .stat-item {
         text-align: center;
-        padding: 1.5rem;
+        padding: 1.25rem;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
@@ -436,6 +450,9 @@ st.markdown("""
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        min-width: 120px;
+        flex: 1;
+        max-width: 150px;
     }
     
     .stat-item::before {
@@ -462,7 +479,7 @@ st.markdown("""
     
     .stat-number {
         display: block;
-        font-size: 2.5rem;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
         font-weight: 700;
         color: #6366f1;
         margin-bottom: 0.5rem;
@@ -470,7 +487,7 @@ st.markdown("""
     }
     
     .stat-label {
-        font-size: 0.875rem;
+        font-size: clamp(0.75rem, 2vw, 0.875rem);
         color: #9ca3af;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -898,11 +915,15 @@ st.markdown("""
     /* Responsive Design */
     @media (max-width: 768px) {
         .hero-stats {
-            gap: 1.5rem;
+            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
         }
         
         .stat-item {
             padding: 1rem;
+            min-width: 200px;
+            max-width: 250px;
         }
         
         .result-grid {
@@ -912,6 +933,91 @@ st.markdown("""
         
         .features-grid {
             grid-template-columns: 1fr;
+        }
+        
+        .hero-content {
+            padding: 2rem 1rem;
+        }
+        
+        .section-header {
+            padding: 1.5rem 1rem;
+            margin: 0 1rem 1.25rem 1rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        .section-header p {
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+        
+        /* Mobile-specific uploader styling */
+        .stFileUploader {
+            margin: 0 1rem;
+            padding: 0.75rem;
+        }
+        
+        .stFileUploader > div {
+            padding: 1rem !important;
+        }
+        
+        .stFileUploader button {
+            padding: 0.625rem 1.25rem !important;
+            font-size: 0.8rem !important;
+        }
+        
+        /* Ensure text doesn't overlap in mobile */
+        .stFileUploader div[data-testid="stFileUploader"] p,
+        .stFileUploader div[data-testid="stFileUploader"] span,
+        .stFileUploader div[data-testid="stFileUploader"] label {
+            font-size: 0.875rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 0.5rem !important;
+        }
+    }
+    
+    /* Extra small mobile devices */
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(0.875rem, 2vw, 1rem);
+        }
+        
+        .hero-description {
+            font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+            padding: 0 0.5rem;
+        }
+        
+        .stat-item {
+            min-width: 180px;
+            max-width: 220px;
+        }
+        
+        .stat-number {
+            font-size: clamp(1.5rem, 3.5vw, 1.75rem);
+        }
+        
+        .stat-label {
+            font-size: clamp(0.625rem, 1.8vw, 0.75rem);
+        }
+        
+        .stFileUploader {
+            margin: 0 0.5rem;
+            padding: 0.5rem;
+        }
+        
+        .stFileUploader > div {
+            padding: 0.75rem !important;
+        }
+        
+        .stFileUploader button {
+            padding: 0.5rem 1rem !important;
+            font-size: 0.75rem !important;
         }
     }
     
