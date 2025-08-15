@@ -1387,7 +1387,7 @@ def main():
             </div>
             <div style="text-align: center; margin-top: 3rem;">
                 <p style="margin-bottom: 1rem;">
-                    <strong>Contact:</strong> maheshvellogi99@gmail.com
+                    <strong>Contact:</strong> maheshvellogi99@gmail.com | mhc08072005@gmail.com
                 </p>
                 <p>
                     <strong>GitHub:</strong> <a href="https://github.com/maheshvellogi99">maheshvellogi99</a> | 
