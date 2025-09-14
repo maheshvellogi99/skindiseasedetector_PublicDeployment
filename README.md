@@ -172,6 +172,5 @@ This project is for educational and research purposes. Please ensure compliance 
 
 ## Outputs:
 <img width="1236" height="1041" alt="Screenshot 2025-09-14 at 9 36 17 PM" src="https://github.com/user-attachments/assets/096da653-9cd8-4128-b474-22628036a1f4" />
-<img width="1710" height="1069" alt="Screenshot 2025-07-24 at 5 36 55 PM" src="https://github.com/user-attachments/assets/664d5e89-5426-458d-a4c3-713ac3c9d2e2" />
 <img width="1236" height="1041" alt="Screenshot 2025-09-14 at 9 38 04 PM" src="https://github.com/user-attachments/assets/a514880b-c1c8-47ab-82f2-3ea321bc295f" />
 
