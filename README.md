@@ -1,8 +1,11 @@
-# 🏥 Skin Disease Detection System
+# Skin Disease Detection System
 
-A comprehensive machine learning system for detecting and classifying 23 different types of skin diseases using deep learning.
+A comprehensive Deep learning system for detecting and classifying 23 different types of skin diseases using deep learning.
 
-## 🌟 Features
+# Try the Live App Here:
+https://dermorasense.streamlit.app/
+
+## Features
 
 - **23 Disease Categories**: Comprehensive coverage of common skin conditions
 - **High Accuracy**: Powered by ResNet50V2 transfer learning
@@ -10,7 +13,7 @@ A comprehensive machine learning system for detecting and classifying 23 differe
 - **Detailed Analysis**: Confidence scores and probability distributions
 - **Professional UI**: Modern, responsive design with medical-grade interface
 
-## 📋 Supported Diseases
+## Supported Diseases
 
 1. **Acne and Rosacea Photos**
 2. **Actinic Keratosis Basal Cell Carcinoma and other Malignant Lesions**
@@ -36,56 +39,22 @@ A comprehensive machine learning system for detecting and classifying 23 differe
 22. **Vasculitis Photos**
 23. **Warts Molluscum and other Viral Infections**
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
 - Python 3.8 or higher
 - TensorFlow 2.x
 - CUDA-compatible GPU (recommended for faster training)
-
-### Installation
-
-1. **Clone or download the project files**
-
-2. **Create and activate a virtual environment (recommended)**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Verify dataset structure**:
-   ```
-   dataset/
-   ├── train/
-   │   ├── Acne and Rosacea Photos/
-   │   ├── Atopic Dermatitis Photos/
-   │   └── ... (23 disease categories)
-   └── test/
-       ├── Acne and Rosacea Photos/
-       ├── Atopic Dermatitis Photos/
-       └── ... (23 disease categories)
-   ```
-5. **Download model**:
-`  - The model will be automatically downloaded from Dropbox on first run.
-   - Alternatively, place `skin_disease_model.h5` in the project root.Download model from this link: https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1
-
-6. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
-## 🎯 Usage
+  
+## Usage
 
 1. Open the app in your browser - 
 2. Navigate to the **Upload & Predict** page.
 3. Upload a clear image of the skin condition.
 4. View the predicted disease, confidence score, and recommendations.
 
-## 🏗️ Model Architecture
+## Model Architecture
 
 ### Base Model
 - **ResNet50V2**: Pre-trained on ImageNet
@@ -109,7 +78,7 @@ ResNet50V2 (base)
 - **Regularization**: Dropout layers to prevent overfitting
 - **Callbacks**: Early stopping, learning rate reduction, model checkpointing
 
-## 📊 Performance
+## Performance
 
 The model achieves high accuracy across multiple skin disease categories with:
 - **Transfer Learning**: Leverages ResNet50V2 pre-trained weights
@@ -117,7 +86,7 @@ The model achieves high accuracy across multiple skin disease categories with:
 - **Regularization**: Prevents overfitting
 - **Fine-tuning**: Optimizes for specific disease detection
 
-## 🔧 Configuration
+## Configuration
 
 ### Model Parameters
 - **Image Size**: 224x224 pixels
@@ -132,7 +101,7 @@ The model achieves high accuracy across multiple skin disease categories with:
 - **Zoom**: ±20%
 - **Horizontal Flip**: Enabled
 
-## ⚠️ Important Notes
+## Important Notes
 
 ### Medical Disclaimer
 - **This tool is for educational purposes only**
@@ -153,7 +122,7 @@ The model achieves high accuracy across multiple skin disease categories with:
 - Avoid shadows and reflections
 - Use consistent lighting conditions
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -170,7 +139,6 @@ The model achieves high accuracy across multiple skin disease categories with:
 
 3. **Model Not Found**:
    - Ensure you've trained the model first
-   - Directly download here - https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1
    - Check file path in `app.py`
 
 4. **Dataset Issues**:
@@ -178,16 +146,14 @@ The model achieves high accuracy across multiple skin disease categories with:
    - Ensure all categories have images
    - Check file permissions
 
-## 🔮 Future Enhancements
-
-- [ ] Mobile application development
-- [ ] Real-time video analysis
-- [ ] Integration with electronic health records
-- [ ] Additional disease categories
-- [ ] Multi-language support
-- [ ] API development for third-party integration
-
-## 📞 Support
+## Future Enhancements
+   - Mobile application development
+   - Real-time video analysis
+   - Integration with electronic health records
+   - Additional disease categories
+   - Multi-language support
+   - API development for third-party integration
+## Support
 
 For questions, issues, or contributions:
 - Contact me at Github: https://github.com/maheshvellogi99 or at Linkedin: http://linkedin.com/in/mahesh-vellogi-aa13522ba
@@ -196,7 +162,7 @@ For questions, issues, or contributions:
 - Ensure all dependencies are installed
 - Verify dataset structure
 
-## 📄 License
+##� License
 
 This project is for educational and research purposes. Please ensure compliance with local regulations regarding medical software and data privacy.
 
