@@ -196,7 +196,7 @@ st.markdown("""
         background: rgba(170, 187, 230, 1);
         border: 2px dashed rgba(99, 102, 241, 0.3);
         border-radius: 16px;
-        padding: 1rem;
+        padding: 1.25rem;
         text-align: center;
         transition: all 0.3s ease;
         backdrop-filter: blur(20px);
@@ -204,8 +204,6 @@ st.markdown("""
         max-width: 720px; /* constrain width */
         margin-left: auto;
         margin-right: auto; /* center */
-        width: 100%;
-        box-sizing: border-box;
     }
     
     .stFileUploader:hover {
@@ -252,11 +250,9 @@ st.markdown("""
         color: white !important;
         border: none !important;
         border-radius: 12px !important;
-        padding: 0.75rem 1.5rem !important;
+        padding: 0.875rem 2rem !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
-        font-size: 0.875rem !important;
-        white-space: nowrap !important;
     }
     
     .stFileUploader button:hover {
@@ -298,10 +294,8 @@ st.markdown("""
     .stFileUploader > div {
         background: rgba(255, 255, 255, 0.9) !important;
         border-radius: 16px !important;
-        padding: 1.5rem !important;
+        padding: 2rem !important;
         text-align: center !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
     }
     
     /* Ensure all text elements are visible */
@@ -374,20 +368,18 @@ st.markdown("""
     
     .hero-content {
         text-align: center;
-        max-width: 800px;
-        padding: 0 2rem;
+        max-width: 95%;
+        padding: 0 1rem;
         z-index: 2;
         position: relative;
         background: rgba(255, 255, 255, 0.03);
-        border-radius: 24px;
+        border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 3rem;
+        padding: 2rem 1.5rem;
         backdrop-filter: blur(20px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
     }
     
     .hero-content:hover {
@@ -398,7 +390,7 @@ st.markdown("""
     }
     
     .hero-title {
-        font-size: clamp(2.5rem, 6vw, 6rem);
+        font-size: clamp(2.5rem, 6vw, 4rem);
         font-weight: 800;
         background: linear-gradient(135deg, #ffffff 0%, #6366f1 50%, #8b5cf6 100%);
         -webkit-background-clip: text;
@@ -408,12 +400,13 @@ st.markdown("""
         letter-spacing: -0.02em;
         line-height: 1.1;
         text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
-        word-break: keep-all;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     .hero-subtitle {
-        font-size: clamp(1rem, 2.5vw, 1.75rem);
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
         font-weight: 600;
         color: #e5e7eb;
         margin-bottom: 1rem;
@@ -422,11 +415,11 @@ st.markdown("""
     }
     
     .hero-description {
-        font-size: clamp(0.875rem, 2vw, 1.125rem);
+        font-size: clamp(0.9rem, 2vw, 1rem);
         color: #9ca3af;
         line-height: 1.5;
         margin-bottom: 2rem;
-        max-width: 600px;
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
         padding: 0 1rem;
@@ -435,14 +428,13 @@ st.markdown("""
     .hero-stats {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: 3rem;
         flex-wrap: wrap;
-        padding: 0 1rem;
     }
     
     .stat-item {
         text-align: center;
-        padding: 1.25rem;
+        padding: 1.5rem;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
@@ -450,9 +442,6 @@ st.markdown("""
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        min-width: 120px;
-        flex: 1;
-        max-width: 150px;
     }
     
     .stat-item::before {
@@ -479,7 +468,7 @@ st.markdown("""
     
     .stat-number {
         display: block;
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-size: 2.5rem;
         font-weight: 700;
         color: #6366f1;
         margin-bottom: 0.5rem;
@@ -487,7 +476,7 @@ st.markdown("""
     }
     
     .stat-label {
-        font-size: clamp(0.75rem, 2vw, 0.875rem);
+        font-size: 0.875rem;
         color: #9ca3af;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -914,6 +903,33 @@ st.markdown("""
     
     /* Responsive Design */
     @media (max-width: 768px) {
+        .hero-section {
+            padding: 1rem;
+            min-height: 60vh;
+        }
+        
+        .hero-content {
+            padding: 1.5rem 1rem;
+            margin: 0 0.5rem;
+        }
+        
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 3rem);
+            white-space: normal;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(0.9rem, 4vw, 1.2rem);
+            line-height: 1.3;
+        }
+        
+        .hero-description {
+            font-size: clamp(0.8rem, 3vw, 0.95rem);
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+        
         .hero-stats {
             gap: 1rem;
             flex-direction: column;
@@ -922,30 +938,25 @@ st.markdown("""
         
         .stat-item {
             padding: 1rem;
-            min-width: 200px;
-            max-width: 250px;
+            width: 100%;
+            max-width: 200px;
         }
         
-        .result-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        .stat-number {
+            font-size: 2rem;
         }
         
-        .features-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .hero-content {
-            padding: 2rem 1rem;
+        .upload-section {
+            padding: 1.5rem 0.5rem;
         }
         
         .section-header {
             padding: 1.5rem 1rem;
-            margin: 0 1rem 1.25rem 1rem;
+            margin: 0 0.5rem 1rem 0.5rem;
         }
         
         .section-header h2 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
         }
         
         .section-header p {
@@ -953,71 +964,110 @@ st.markdown("""
             padding: 0 0.5rem;
         }
         
-        /* Mobile-specific uploader styling */
         .stFileUploader {
-            margin: 0 1rem;
-            padding: 0.75rem;
+            margin: 0 0.5rem;
+            padding: 1rem;
+            max-width: calc(100% - 1rem);
         }
         
         .stFileUploader > div {
-            padding: 1rem !important;
+            padding: 1.5rem 1rem !important;
         }
         
-        .stFileUploader button {
-            padding: 0.625rem 1.25rem !important;
-            font-size: 0.8rem !important;
-        }
-        
-        /* Ensure text doesn't overlap in mobile */
-        .stFileUploader div[data-testid="stFileUploader"] p,
-        .stFileUploader div[data-testid="stFileUploader"] span,
-        .stFileUploader div[data-testid="stFileUploader"] label {
-            font-size: 0.875rem !important;
+        .stFileUploader label,
+        .stFileUploader p,
+        .stFileUploader span {
+            font-size: 0.95rem !important;
             line-height: 1.4 !important;
-            margin-bottom: 0.5rem !important;
-        }
-    }
-    
-    /* Extra small mobile devices */
-    @media (max-width: 480px) {
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 2.5rem);
         }
         
-        .hero-subtitle {
-            font-size: clamp(0.875rem, 2vw, 1rem);
-        }
-        
-        .hero-description {
-            font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+        .result-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
             padding: 0 0.5rem;
         }
         
-        .stat-item {
-            min-width: 180px;
-            max-width: 220px;
+        .image-container, .analysis-container {
+            padding: 1rem;
         }
         
-        .stat-number {
-            font-size: clamp(1.5rem, 3.5vw, 1.75rem);
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 0 0.5rem;
         }
         
-        .stat-label {
-            font-size: clamp(0.625rem, 1.8vw, 0.75rem);
+        .feature-card {
+            padding: 1.5rem;
+        }
+        
+        .disease-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 0 0.5rem;
+        }
+        
+        .disease-item {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .about-content {
+            padding: 2rem 1rem;
+            margin: 0 0.5rem;
+        }
+        
+        .about-section h2 {
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
+        }
+        
+        .about-section p {
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .hero-title {
+            font-size: clamp(1.8rem, 10vw, 2.5rem);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(0.8rem, 5vw, 1rem);
+        }
+        
+        .hero-description {
+            font-size: clamp(0.75rem, 4vw, 0.9rem);
+        }
+        
+        .section-header h2 {
+            font-size: clamp(1.2rem, 8vw, 2rem);
         }
         
         .stFileUploader {
-            margin: 0 0.5rem;
-            padding: 0.5rem;
+            margin: 0 0.25rem;
         }
         
         .stFileUploader > div {
-            padding: 0.75rem !important;
+            padding: 1rem 0.5rem !important;
         }
         
-        .stFileUploader button {
-            padding: 0.5rem 1rem !important;
-            font-size: 0.75rem !important;
+        .stFileUploader label,
+        .stFileUploader p,
+        .stFileUploader span {
+            font-size: 0.9rem !important;
+        }
+        
+        .stat-item {
+            padding: 0.75rem;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
         }
     }
     
@@ -1168,8 +1218,8 @@ def main():
     
     # Working file uploader integrated in the upload section
     st.markdown("""
-    <div style="text-align: center; margin: 0.75rem 0 0.75rem;">
-        <p style="color: #cbd5e1; margin-bottom: 0.5rem;">Upload your image below</p>
+    <div style="text-align: center; margin: 0.75rem 0 0.75rem; padding: 0 1rem;">
+        <p style="color: #cbd5e1; margin-bottom: 0.5rem; font-size: 0.9rem;">Upload your image below</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -1387,7 +1437,7 @@ def main():
             </div>
             <div style="text-align: center; margin-top: 3rem;">
                 <p style="margin-bottom: 1rem;">
-                    <strong>Contact:</strong> maheshvellogi99@gmail.com | mhc08072005@gmail.com
+                    <strong>Contact:</strong> maheshvellogi99@gmail.com
                 </p>
                 <p>
                     <strong>GitHub:</strong> <a href="https://github.com/maheshvellogi99">maheshvellogi99</a> | 
