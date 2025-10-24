@@ -372,11 +372,11 @@ st.markdown("""
         padding: 0 1rem;
         z-index: 2;
         position: relative;
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.05);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 2rem 1.5rem;
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(5px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         margin: 0 auto;
@@ -399,30 +399,33 @@ st.markdown("""
         margin-bottom: 1.5rem;
         letter-spacing: -0.02em;
         line-height: 1.1;
-        text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        filter: none;
     }
     
     .hero-subtitle {
         font-size: clamp(1rem, 2.5vw, 1.5rem);
         font-weight: 600;
-        color: #e5e7eb;
+        color: #ffffff;
         margin-bottom: 1rem;
-        opacity: 0.9;
+        opacity: 1;
         line-height: 1.3;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
     
     .hero-description {
         font-size: clamp(0.9rem, 2vw, 1rem);
-        color: #9ca3af;
+        color: #d1d5db;
         line-height: 1.5;
         margin-bottom: 2rem;
         max-width: 90%;
         margin-left: auto;
         margin-right: auto;
         padding: 0 1rem;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
     
     .hero-stats {
@@ -477,10 +480,11 @@ st.markdown("""
     
     .stat-label {
         font-size: 0.875rem;
-        color: #9ca3af;
+        color: #d1d5db;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        font-weight: 500;
+        font-weight: 600;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
     
     /* Upload Section */
@@ -507,11 +511,11 @@ st.markdown("""
     .section-header {
         text-align: center;
         margin-bottom: 1.25rem; /* less gap before uploader */
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.05);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 1.75rem; /* smaller card padding */
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(5px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         max-width: 900px;
@@ -535,14 +539,16 @@ st.markdown("""
         background-clip: text;
         margin-bottom: 1rem;
         letter-spacing: -0.02em;
-        text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+        filter: none;
     }
     .section-header p {
         font-size: 1.125rem;
-        color: #9ca3af;
+        color: #d1d5db;
         max-width: 500px;
         margin: 0 auto;
         line-height: 1.6;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
     /* Prediction Results */
     .prediction-section {
@@ -1145,12 +1151,23 @@ def load_model():
 
 def preprocess_image(image):
     """Preprocess uploaded image"""
-    if image.mode != 'RGB':
-        image = image.convert('RGB')
-    image = image.resize((224, 224))
-    img_array = np.array(image) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-    return img_array
+    try:
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
+        
+        # Resize image
+        image = image.resize((224, 224))
+        
+        # Convert to numpy array and normalize
+        img_array = np.array(image) / 255.0
+        
+        # Add batch dimension
+        img_array = np.expand_dims(img_array, axis=0)
+        
+        return img_array
+    except Exception as e:
+        st.error(f"Error preprocessing image: {e}")
+        return None
 
 def get_confidence_badge(confidence):
     """Get confidence badge HTML"""
@@ -1246,9 +1263,19 @@ def main():
                     <h3>📷 Uploaded Image</h3>
         """, unsafe_allow_html=True)
         
-        image = Image.open(uploaded_file)
-        image_for_pred = image.copy()
-        st.image(image, caption="Uploaded Image", use_container_width=False, width=720)
+        try:
+            image = Image.open(uploaded_file)
+            image_for_pred = image.copy()
+            
+            # Ensure image is in RGB format
+            if image.mode != 'RGB':
+                image = image.convert('RGB')
+                image_for_pred = image.copy()
+            
+            st.image(image, caption="Uploaded Image", use_container_width=False, width=720)
+        except Exception as e:
+            st.error(f"Error processing image: {e}")
+            st.stop()
         
         st.markdown("""
                 </div>
@@ -1259,6 +1286,10 @@ def main():
         # Preprocess and predict
         with st.spinner("🔎 Analyzing your image..."):
             img_array = preprocess_image(image_for_pred)
+            if img_array is None:
+                st.error("Failed to preprocess image. Please try again.")
+                st.stop()
+            
             prediction = detector.model.predict(img_array)
             predicted_class = np.argmax(prediction[0])
             confidence = prediction[0][predicted_class]
