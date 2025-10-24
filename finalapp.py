@@ -14,14 +14,6 @@ import time
 from streamlit.components.v1 import html
 import base64
 
-
-st.set_page_config(
-    page_title="DermoraSense - Skin Disease Detection",
-    page_icon="🔬",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
-
 MODEL_URL = "https://www.dropbox.com/scl/fi/5wwmx63gw24afr15hxhid/skin_disease_model.h5?rlkey=we18mf6adx26eeh6hkmqss4a6&st=c1o0j81k&dl=1"
 MODEL_PATH = "skin_disease_model.h5"
 TEMP_MODEL_PATH = "skin_disease_model.h5?dl=1"
@@ -48,6 +40,14 @@ if not os.path.exists(MODEL_PATH):
     st.error("Model file was not downloaded. Please check the Dropbox link or network connection.")
 else:
     st.success("Model file is present.")
+
+# Set page config
+st.set_page_config(
+    page_title="DermoraSense - Skin Disease Detection",
+    page_icon="🔬",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
 # Enhanced CSS with cursor-reactive background and layered design
 st.markdown("""
